@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+<form action="http://127.0.0.1:8000/logout" style="float:right">
+        <input type="submit" value="logout" class="button is-success">
+    </form>
+   {% if 'onlineapp.add_college' in permissions %}
+    <form action="http://127.0.0.1:8000/college/add/">
+        <br>
+        <center><input type="submit" value="+ Add college" class="button is-success"></center>
+    </form>
+    {% endif %}
+
+<br>
+<br>
+ <center><table class="table is-bordered">
+       {% for x in my_dict %}
+       <tr>
+           <td><a href="http://127.0.0.1:8000/colleges/{{x.acronym}}">{{x.acronym}}</a></td>
+           <td>{{x.name}}</td>
+           {% if 'onlineapp.change_college' in permissions %}
+           <td><a href="http://127.0.0.1:8000/college/edit/{{x.id}}/">edit</a></td>
+           {% endif %}
+           {% if 'onlineapp.delete_college' in permissions %}
+           <td><a href="http://127.0.0.1:8000/college/delete/{{x.id}}/">delete</a></td>
+           {% endif %}
+       </tr>
+       {% endfor %}
+   </table>
+ </center>
+<form>
+
+</form>
+</body>
+</html>

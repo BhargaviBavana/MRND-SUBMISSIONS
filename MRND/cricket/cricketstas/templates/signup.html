@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+</head>
+
+<body>
+<center><h1><b>SIGNUP</b></h1></center>
+<form  method="post">
+    {% csrf_token %}
+<center><table class="table is-bordered">
+{{signup_form.as_table}}
+</table></center>
+<br>
+    <center><input type="submit" value="signup" class="button is-success"></center>
+</form>
+
+</body>
+</html>

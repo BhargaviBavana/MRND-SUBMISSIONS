@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import logging
+import logging.config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,13 +28,16 @@ SECRET_KEY = '^x2lya@$&#rrefct(q$m=zcl8)vqu$zefa13ru!x&*ojy@ly05'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS=["sma", "localhost", "127.0.0.1"]
+
 
 # Application definition
 
 INSTALLED_APPS = [
     'debug_toolbar',
     'onlineapp',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,15 +46,22 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
 ]
 
 ROOT_URLCONF = 'classproject.urls'
@@ -126,3 +138,38 @@ STATIC_URL = '/static/'
 
 
 INTERNAL_IPS=['127.0.0.1']
+
+
+LOGGING_CONFIG = None
+
+LOGGING = {
+    'version' : 1,
+    'disable_existing_loggers': True,
+
+    'handlers': {
+            'default': {
+                'level':'DEBUG',
+                'class':'logging.handlers.RotatingFileHandler',
+                'filename': 'onlineapp/logs/mylog.log',
+            },
+            'request_handler': {
+                'level':'DEBUG',
+                'class':'logging.handlers.RotatingFileHandler',
+                'filename': 'onlineapp/logs/django_request.log',
+            },
+        },
+        'loggers': {
+            '': {
+                'handlers': ['default'],
+                'level': 'DEBUG',
+                'propagate': False
+            },
+            'django.db.backends': {
+                'handlers': ['request_handler'],
+                'level': 'DEBUG',
+                'propagate': False
+            },
+        }
+    }
+
+logging.config.dictConfig(LOGGING)

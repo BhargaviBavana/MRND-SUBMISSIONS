@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+   {% csrf_token %}
+    name:{{form1.name}}
+    <br><br>
+    email:{{form1.email}}
+    <br><br>
+    dropped_out:{{form1.dropped_out}}
+    <br><br>
+    db_folder:{{form1.db_folder}}
+    <br><br>
+    <br><br>
+    p1:{{form2.problem1}}
+    <br><br>
+    p2:{{form2.problem2}}
+    <br><br>
+    p3:{{form2.problem3}}
+    <br><br>
+    p4:{{form2.problem4}}
+    <br><br>
+    total:{{form2.total}}
+    <br><br>
+    <input type="submit" value="submit"/>
+</form>
+</body>
+</html>

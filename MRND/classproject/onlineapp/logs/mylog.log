@@ -1,0 +1,102 @@
+Debug Message
+Eroor Message
+Info message
+"GET /colleges/ HTTP/1.1" 200 18747
+"GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+"GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+"GET /static/debug_toolbar/img/ajax-loader.gif HTTP/1.1" 304 0
+"GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+"GET /static/debug_toolbar/img/djdt_vertical.png HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 566, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <module 'debug_toolbar.toolbar' from 'C:\\Python36-32\\lib\\site-packages\\debug_toolbar\\toolbar.py'> (djdt:djdt) '__debug__/'>], [<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLPattern 'login/' [name='login']>], [<URLPattern 'signup/' [name='signup']>], [<URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'testpath/' [name='first']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'colleges/' [name='colleges']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'colleges/<str:acronym>/' [name='college_details']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/add/' [name='college_add']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/edit/<int:id>/' [name='college_edit']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/delete/<int:id>/' [name='college_delete']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/add/<str:acronym>/' [name='student_add']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/edit/<str:acronym>/<int:id>/' [name='student_edit']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/delete/<str:acronym>/<int:id>/' [name='student_delete']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/colleges/' [name='rest_college']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:id>/' [name='rest_college_id']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:id>/students/' [name='rest_college_information']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:cid>/student/<int:sid>/' [name='rest_student_information']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/tokens/' [name='view_token']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/searchbar/' [name='search_bar']>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <module 'debug_toolbar.toolbar' from 'C:\\Python36-32\\lib\\site-packages\\debug_toolbar\\toolbar.py'> (djdt:djdt) '__debug__/'>
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Python36-32\lib\site-packages\django\core\handlers\base.py", line 100, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "C:\Python36-32\lib\site-packages\django\urls\resolvers.py", line 566, in resolve
+    raise Resolver404({'tried': tried, 'path': new_path})
+django.urls.exceptions.Resolver404: {'tried': [[<URLResolver <module 'debug_toolbar.toolbar' from 'C:\\Python36-32\\lib\\site-packages\\debug_toolbar\\toolbar.py'> (djdt:djdt) '__debug__/'>], [<URLResolver <URLPattern list> (admin:admin) 'admin/'>], [<URLPattern 'login/' [name='login']>], [<URLPattern 'signup/' [name='signup']>], [<URLPattern 'logout/' [name='logout']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'testpath/' [name='first']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'colleges/' [name='colleges']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'colleges/<str:acronym>/' [name='college_details']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/add/' [name='college_add']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/edit/<int:id>/' [name='college_edit']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'college/delete/<int:id>/' [name='college_delete']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/add/<str:acronym>/' [name='student_add']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/edit/<str:acronym>/<int:id>/' [name='student_edit']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'student/delete/<str:acronym>/<int:id>/' [name='student_delete']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/colleges/' [name='rest_college']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:id>/' [name='rest_college_id']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:id>/students/' [name='rest_college_information']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/college/<int:cid>/student/<int:sid>/' [name='rest_student_information']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/tokens/' [name='view_token']>], [<URLResolver <module 'onlineapp.urls' from 'C:\\Users\\Bhargavi\\classproject\\onlineapp\\urls.py'> (None:None) ''>, <URLPattern 'api/v1/searchbar/' [name='search_bar']>]], 'path': 'favicon.ico'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: 'URLResolver' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'URLResolver' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python36-32\lib\site-packages\django\template\base.py", line 850, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in <URLResolver <URLPattern list> (admin:admin) 'admin/'>
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 14759
+"GET /__debug__/render_panel/?store_id=1786a22de6ac4ac9bd96e43f838e5470&panel_id=LoggingPanel HTTP/1.1" 200 837
+"GET /admin/ HTTP/1.1" 200 15756
+"GET /admin/ HTTP/1.1" 200 15755
+Successfuly imported extension module "markdown.extensions.toc".
+Successfully loaded extension "markdown.extensions.toc.TocExtension".
+"GET /api/v1/colleges/ HTTP/1.1" 200 21049
+"GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+"GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+"GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+"GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+"GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0

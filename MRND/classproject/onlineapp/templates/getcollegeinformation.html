@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 </head>
 <body>
-<table>
-       {% for sname,total in my_dict %}
+<form action="http://127.0.0.1:8000/login">
+        <input type="submit" value="logout" class="button is-success" style="float:right">
+    </form>
+{% if 'onlineapp.add_student' in permissions %}
+ <form action="http://127.0.0.1:8000/student/add/{{acronym}}/">
+     <center> <input type="submit" value="+ Add student" class="button is-success"></center>
+ </form>
+{% endif %}
+ <br>
+<center><table class="table is-bordered">
+       {% for sname,total,acr,sid in my_dict %}
        <tr>
            <td>{{sname}}</td>
            <td>{{total}}</td>
+           {% if 'onlineapp.change_student' in permissions%}
+           <td><a href="http://127.0.0.1:8000/student/edit/{{acr}}/{{sid}}/">edit</a></td>
+           {% endif %}
+           {%if 'onlineapp.delete_student' in permissions%}
+           <td><a href="http://127.0.0.1:8000/student/delete/{{acr}}/{{sid}}/">delete</a></td>
+           {% endif %}
        </tr>
        {% endfor %}
-   </table>
+    </table></center>
 </body>
 </html>

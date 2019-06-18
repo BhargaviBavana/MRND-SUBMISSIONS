@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    </head>
+<body>
+    <script>
+        function call()
+        {
+               var x=document.getElementById('year');
+               var value=x.options[x.selectedIndex].value;
+               var url="http://127.0.0.1:8000/seasons/"+value+"/";
+               console.log(url);
+               window.location.replace(url);
+        }
+        function call_match(season,id)
+        {
+            var url="http://127.0.0.1:8000/seasons/"+season+"/match/"+id+"/";
+            console.log(url);
+            window.location.replace(url);
+        }
+    </script>
+
+<form>
+<select id="year" onchange="call()">
+    <option value="seasons">seasons</option>
+    <option value="2008">2008</option>
+    <option value="2009">2009</option>
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+    <option value="2015">2015</option>
+    <option value="2016">2016</option>
+    <option value="2017">2017</option>
+    <option value="2018">2018</option>
+    <option value="2019">2019</option>
+</select>
+</form>
+    {% if match_list %}
+<table class="table is-bordered">
+    <tr>
+        <th>Team1</th>
+        <th>Team2</th>
+        <th>Venue</th>
+        <th>Toss_Result</th>
+        <th>Toss_Decision</th>
+        <th>Result</th>
+        <th>Player_Of_Match</th>
+    </tr>
+   {% for id,t1,t2,v,tw,td,r,pm in match_list %}
+   <tr>
+       <td>{{t1}}</td>
+       <td>{{t2}}</td>
+       <td>{{v}}</td>
+       <td>{{tw}}</td>
+       <td>{{td}}</td>
+       <td>{{r}}</td>
+       <td>{{pm}}</td>
+       <td><input type="button" value="View Match Details" onclick="call_match({{season}},{{id}})"></td>
+   </tr>
+    {% endfor %}
+</table>
+    {% endif %}
+<div class = "container">
+  <div class = "col-md-6">
+    <ul class="pager">
+      <span class="step-links">
+        {% if match_list.has_previous %}
+          <a href="?page={{ match_list.previous_page_number }}">previous</a>
+        {% else %}
+        <a title = "No Posts available">Previous</a>
+        {% endif %}
+        {% if match_list.has_next %}
+          <a  href="?page={{ match_list.next_page_number }}">Next</a>
+        {% else %}
+        <a title = "No Posts available">Next</a>
+        {% endif %}
+        </span>
+     </ul>
+  </div>
+</div>
+
+</body>
+</html>

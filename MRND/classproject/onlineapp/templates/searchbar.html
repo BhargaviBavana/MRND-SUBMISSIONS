@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script>
+        function display(){
+         var d;
+            src=document.getElementById("search").value;
+            const url="https://api.spotify.com/v1/search?q="+src+"&type=track%2Cartist&market=US&limit=10&offset=5";
+            fetch(url,{
+                   headers:
+                   {
+                      Authorization: "Bearer BQBC0oFyDm_bM_Fw5pAAxan9kMxXCUgHKR4VUyESY-qsB8xLdmNWe0d6usLJ6U9tDOr9tuW1ZYoY_RQlph4opRkbiyislOGtCLwdrdv_aQkXfFTB_ViLaYmji5PeOmWpy1D0bONceKlgOBsExoZ3QeqwO9oPh7AV8g"
+                  }
+                 ).then(response=>{
+                    d=response.json();
+                    return d;
+                 }).then(data=>console.log(data));
+        document.getElementById("result").innerHTML=d;
+        }
+    </script>
+</head>
+
+<body>
+<br>
+<br>
+<input type="text" oninput="display()" id="search" class="input is-rounded" placeholder="Rounded input">
+
+<div id="result">
+
+</div>
+
+</body>
+</html>

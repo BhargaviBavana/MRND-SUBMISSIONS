@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path  # For django versions from 2.0 and up
-from onlineapp import views
+from onlineapp.view.college import *
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello/',views.hello_world),
-    path('onlineapp/',include("onlineapp.urls"))
+    #path('hello/',views.hello_world),
+    #path('onlineapp/',include("onlineapp.urls"))
+    path('login/',LoginView.as_view(),name="login"),
+    path('signup/',SignupView.as_view(),name="signup"),
+    path('logout/',logout_user,name="logout"),
+    path(r'',include("onlineapp.urls"))
 ]
 
 
@@ -31,5 +35,4 @@ if settings.DEBUG:
 
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),
-
     ] + urlpatterns

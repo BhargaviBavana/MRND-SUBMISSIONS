@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+<body>
+<br>
+<br>
+<center><h1><b>LOGIN FORM</b></h1></center><br>
+<form method="post">
+    {% csrf_token %}
+<center>
+    <table class="table is-bordered">
+    {{login_form}}
+    </table>
+</center>
+    <center><input type="submit" value="login" class="button is-success"></center>
+</form>
+
+
+<br>
+<hr>
+<center><a href="http://127.0.0.1:8000/signup/">singup</a></center>
+
+</body>
+</html>

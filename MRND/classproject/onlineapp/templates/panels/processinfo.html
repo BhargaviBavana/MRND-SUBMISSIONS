@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Process Info</h1>
+<h1>{{pid}}</h1>
+<p>{{path}}</p>
+<table>
+    <tr>
+        <th>PID</th>
+        <th>NAME</th>
+        <th>WS</th>
+        <th>VM</th>
+    </tr>
+    {% for x in my_dict%}
+        <tr>
+            <td>{{x.pid}}</td>
+            <td>{{x.name}}</td>
+            <td>{{x.ws}}</td>
+            <td>{{x.vm}}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
+</head>
+<body>
+{% for t1,t2,tw,td,r,wr,ww,pm in match_details %}
+<center>
+    <h1><b>MATCH DETAILS</b></h1>
+<p>Team1:&nbsp; &nbsp; &nbsp; &nbsp;{{t1}}</p>
+<p>Team2:&nbsp; &nbsp; &nbsp; &nbsp;{{t2}}</p>
+<p>Toss Winner:&nbsp; &nbsp; &nbsp; &nbsp;{{tw}}</p>
+<p>Toss Decision:&nbsp; &nbsp; &nbsp; &nbsp;{{td}}</p>
+<p>Result:&nbsp; &nbsp; &nbsp; &nbsp;{{r}}</p>
+<p>Win_By_Runs:&nbsp; &nbsp; &nbsp; &nbsp;{{wr}}</p>
+<p>Win_By_Wickets:&nbsp; &nbsp; &nbsp; &nbsp;{{ww}}</p>
+<p>Player_of_match:&nbsp; &nbsp; &nbsp; &nbsp;{{pm}}</p>
+</center>
+{% endfor %}
+<br>
+<br>
+<center>
+    <h1><b>TOP3 RUN SCORERS</b></h1>
+{% for name,team,score in top3_run_scores %}
+<p>name:{{name}},team:{{team}},score:{{score}}</p>
+<br>
+{% endfor %}
+</center>
+    <center>
+        <h1><b>TOP3 WICKET TAKERS</b></h1>
+    {% for name,team,wicket in top3_wicket_takers %}
+        <p>name:{{name}},team:{{team}},wickets:{{wicket}}</p>
+        <br>
+    {% endfor %}
+    </center>
+   <center>
+        <div>
+  <button class="tablinks" onclick="call(event, 'inning1')">inning1</button>
+  <button class="tablinks" onclick="call(event, 'inning2')">inning2</button>
+       </div>
+
+        <div id="inning1" class="tabcontent" style="display:none">
+            <h1><b>INNING1 INFORMATION</b></h1>
+            <table class="table is-bordered">
+                <tr>
+        <th>ball</th>
+        <th>total_runs</th>
+        <th>dismissal_kind</th>
+               </tr>
+                {% for b,tr,dk in ball_details_inning1 %}
+      <tr>
+          <td>{{b}}</td>
+          <td>{{tr}}</td>
+          <td>{{dk}}</td>
+      </tr>
+    {% endfor %}
+            </table>
+        </div>
+        <div id="inning2" class="tabcontent" style="display:none">
+            <h1><b>INNING2 INFORMATION</b></h1>
+             <table class="table is-bordered">
+                <tr>
+        <th>ball</th>
+        <th>total_runs</th>
+        <th>dismissal_kind</th>
+               </tr>
+                {% for b,tr,dk in ball_details_inning2 %}
+      <tr>
+          <td>{{b}}</td>
+          <td>{{tr}}</td>
+          <td>{{dk}}</td>
+      </tr>
+    {% endfor %}
+            </table>
+        </div>
+   </center>
+
+<script>
+function call(evt, inningvalue) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(inningvalue).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+
+</body>
+</html>

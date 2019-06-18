@@ -40,3 +40,17 @@ class MockTest1(models.Model):
 class Teacher(models.Model):
     name = models.CharField(max_length=40)
     college = models.ForeignKey(College, on_delete=models.CASCADE)
+
+
+class ProcessInfo(models.Model):
+    pid=models.IntegerField()
+    name=models.CharField(max_length=255)
+    ws=models.IntegerField()
+    vm=models.IntegerField()
+
+
+
+
+
+
+
